@@ -1,3 +1,21 @@
+# RentalNFT Contract
+
+## Overview
+The `RentalNFT` contract is an ERC721 token contract that allows the owner to rent out tokens to other users for a specified duration.
+
+## Key Features
+- Inherits from `ERC721` and `Ownable` contracts from OpenZeppelin.
+- Allows the owner to set a user for a token along with an expiration time.
+- Provides functions to retrieve the user and expiration time for a token.
+- Includes a function to clear expired rentals.
+
+## Functions
+
+### Constructor
+```solidity
+constructor(string memory name_, string memory symbol_, address initialOwner) ERC721(name_, symbol_) Ownable(initialOwner) {}
+
+
 ```
 
 // SPDX-License-Identifier: MIT
