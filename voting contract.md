@@ -1,4 +1,4 @@
-* Specifies functions for voter registration, proposal creation, voting, delegation, and retrieving the winning proposal ID (```solidity
+**1. Specifies functions for voter registration, proposal creation, voting, delegation, and retrieving the winning proposal ID (```solidity
 function registerVoter(address voter) external;
 function createProposal(string memory name) external;
 function vote(uint256 proposalId) external;
@@ -6,7 +6,7 @@ function delegate(address to) external;
 function winningProposal() external view returns (uint256 winningProposalId);
 ).
 
-**2. Contract (Voting):**
+**2. Contract (Voting):
 
 * Inherits from the `IVoting` interface, implementing its functions.
 * Uses mappings to store voter information (`voters`) and a list of proposals (`proposals`).
@@ -16,7 +16,7 @@ Proposal[] public proposals;
 address public admin;
 ```).
 
-**3. Functions:**
+**3. Functions:
 
 * `registerVoter(address voter)` (admin only): Registers a new voter, setting initial values (```solidity
 function registerVoter(address voter) public override onlyAdmin { ... }
@@ -44,7 +44,7 @@ Overall, this contract provides a foundational framework for a decentralized vot
 
 
 
-```
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -143,10 +143,8 @@ contract Voting is IVoting {
   }
 }
 
-```
 
 
 
 
-///
 
