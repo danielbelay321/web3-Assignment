@@ -44,7 +44,7 @@ Overall, this contract provides a foundational framework for a decentralized vot
 
 
 
-
+```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -145,6 +145,6 @@ contract Voting is IVoting {
 
 
 
-
+```
 
 
