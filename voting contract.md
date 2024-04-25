@@ -1,4 +1,4 @@
-**1. Specifies functions for voter registration, proposal creation, voting, delegation, and retrieving the winning proposal ID (```solidity
+1. Specifies functions for voter registration, proposal creation, voting, delegation, and retrieving the winning proposal ID (```solidity
 function registerVoter(address voter) external;
 function createProposal(string memory name) external;
 function vote(uint256 proposalId) external;
@@ -6,7 +6,7 @@ function delegate(address to) external;
 function winningProposal() external view returns (uint256 winningProposalId);
 ).
 
-**2. Contract (Voting):
+2. Contract (Voting):
 
 * Inherits from the `IVoting` interface, implementing its functions.
 * Uses mappings to store voter information (`voters`) and a list of proposals (`proposals`).
@@ -16,25 +16,25 @@ Proposal[] public proposals;
 address public admin;
 ```).
 
-**3. Functions:
+3. Functions:
 
 * `registerVoter(address voter)` (admin only): Registers a new voter, setting initial values (```solidity
 function registerVoter(address voter) public override onlyAdmin { ... }
-```).
-* `createProposal(string memory name)` (admin only): Creates a new proposal with the specified name (```solidity
+).
+* `createProposal(string memory name)` (admin only): Creates a new proposal with the specified name (solidity
 function createProposal(string memory name) public override onlyAdmin { ... }
-```).
+).
 * `vote(uint256 proposalId)`: Allows a voter to cast a vote for a proposal (checks for eligibility and delegation) (```solidity
 function vote(uint256 proposalId) public override { ... }
-```).
+).
 * `delegate(address to)`: Enables a voter to delegate their vote to another registered voter (```solidity
 function delegate(address to) public override { ... }
-```).
+).
 * `winningProposal() view`: Publicly retrieves the ID of the proposal with the most votes (doesn't modify contract state) (```solidity
 function winningProposal() public view override returns (uint256 winningProposalId) { ... }
-```).
+).
 
-**Additional Notes:**
+### Additional Notes:
 
 * The code utilizes modifiers (`onlyAdmin`) to restrict specific actions to the contract administrator.
 * The `vote` function handles both direct voting and delegated voting scenarios.
