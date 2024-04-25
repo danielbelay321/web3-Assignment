@@ -1,18 +1,17 @@
-## Features
 1. Specifies functions for voter registration,
 2. proposal creation,
 3. voting,
 4. delegation,
 5. and retrieving the winning proposal ID
- ``` (solidity
+ (solidity
 function registerVoter(address voter) external;
 function createProposal(string memory name) external;
 function vote(uint256 proposalId) external;
 function delegate(address to) external;
 function winningProposal() external view returns (uint256 winningProposalId);
-).```
+)
 
-## Contract (Voting):
+2. Contract (Voting):
 
 * Inherits from the `IVoting` interface, implementing its functions.
 * Uses mappings to store voter information (`voters`) and a list of proposals (`proposals`).
@@ -22,7 +21,7 @@ Proposal[] public proposals;
 address public admin;
 ).
 
-##. Functions:
+3. Functions:
 
 * registerVoter(address voter)` (admin only): Registers a new voter, setting initial values (solidity
 function registerVoter(address voter) public override onlyAdmin { ... }
