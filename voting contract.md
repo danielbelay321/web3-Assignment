@@ -92,7 +92,7 @@ contract Voting is IVoting {
   }
 
   // Constructor (sets the admin address)
-  constructor() public {
+  constructor()  {
     admin = msg.sender;
   }
 
@@ -115,10 +115,10 @@ contract Voting is IVoting {
     // Check for vote delegation
     if (voters[msg.sender].delegate != address(0)) {
       voters[voters[msg.sender].delegate].voted = true; // Mark delegate as voted
-      voters[voters[msg.sender].delegate].voteCount++;
+      voters[voters[msg.sender].delegate].vote++;
     } else {
       voters[msg.sender].voted = true;
-      voters[msg.sender].voteCount++;
+      voters[msg.sender].vote++;
     }
     proposals[proposalId].voteCount++;
   }
@@ -142,6 +142,8 @@ contract Voting is IVoting {
     return winningProposalId;
   }
 }
+
+
 
 
 
