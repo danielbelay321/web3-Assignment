@@ -4,7 +4,7 @@ function createProposal(string memory name) external;
 function vote(uint256 proposalId) external;
 function delegate(address to) external;
 function winningProposal() external view returns (uint256 winningProposalId);
-```).
+).
 
 **2. Contract (Voting):**
 
@@ -44,8 +44,7 @@ Overall, this contract provides a foundational framework for a decentralized vot
 
 
 
-///
-
+```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -143,6 +142,8 @@ contract Voting is IVoting {
     return winningProposalId;
   }
 }
+
+```
 
 
 
