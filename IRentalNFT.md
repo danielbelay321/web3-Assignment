@@ -12,7 +12,7 @@ The `RentalNFT` contract is an ERC721 token contract that allows the owner to re
 ## Functions
 
 ### Constructor
-```solidity
+```solidity```
 constructor(string memory name_, string memory symbol_, address initialOwner) ERC721(name_, symbol_) Ownable(initialOwner) {}
 
 
@@ -70,9 +70,5 @@ contract RentalNFT is ERC721, Ownable {
     }
   }
 }
-
-
-
-
 
 ```
