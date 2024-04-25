@@ -159,7 +159,7 @@ contract Voting is IVoting {
 }
 
 
-votinfContract.t.sol
+votingContract.t.sol
 ------------------------------------
 
 // SPDX-License-Identifier: MIT
