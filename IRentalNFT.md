@@ -1,19 +1,21 @@
-# RentalNFT Contract
+## RentalNFT Contract Overview
 
-## Overview
-The `RentalNFT` contract is an ERC721 token contract that allows the owner to rent out tokens to other users for a specified duration.
+This Solidity code implements the `RentalNFT` contract, which adheres to the ERC-4907 standard for rental NFTs. It allows owners to set users for their tokens with specific expiration dates, enabling rental functionality.
 
-## Key Features
-- Inherits from `ERC721` and `Ownable` contracts from OpenZeppelin.
-- Allows the owner to set a user for a token along with an expiration time.
-- Provides functions to retrieve the user and expiration time for a token.
-- Includes a function to clear expired rentals.
+### Key Functions:
 
-## Functions
+* **mint(address to, uint256 tokenId)**: Mints a new NFT.
+* **_isApprovedOrOwner(address spender, uint256 tokenId)**: Checks if the address is the owner or an approved operator.
+* **setUser(uint256 tokenId, address user, uint256 expires)**: Sets the user for a token with an expiration date.
+* **userOf(uint256 tokenId)**: Returns the address of the user associated with the token.
+* **userExpires(uint256 tokenId)**: Returns the expiration timestamp for the user associated with the token.
+* **clearExpired(uint256 tokenId)**: Removes the user association for a token if the expiration date has passed.
 
-### Constructor
-```solidity```
-constructor(string memory name_, string memory symbol_, address initialOwner) ERC721(name_, symbol_) Ownable(initialOwner) {}
+### Additional Notes:
+
+* The contract utilizes inheritance from the `ERC721` and `Ownable` contracts from OpenZeppelin.
+* The `UpdateUser` event is emitted whenever the user or expiration date for a token is updated.
+* This contract enables rental functionality for NFTs by allowing owners to set users with specific expiration dates.
 
 
 ```
