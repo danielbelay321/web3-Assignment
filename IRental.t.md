@@ -1,3 +1,21 @@
+## RentalNFTTest Contract Overview
+
+This Solidity code represents a test suite for the `RentalNFT` contract, which implements the ERC-4907 standard for rental NFTs. The test suite is written in the Forge testing framework and aims to ensure the correct functionality of the `RentalNFT` contract.
+
+### Key Functions:
+
+* **setUp()**: Sets up the test environment.
+* **testSetUserWithFutureExpiration()**: Tests setting a user with a future expiration date.
+* **testUpdateExpiration()**: Tests updating the expiration date of a user.
+* **testSetUserWithPastExpiration()**: Tests setting a user with a past expiration date.
+* **testSetUserWithInvalidExpiration()**: Tests setting a user with an invalid expiration date.
+* **testClearExpired()**: Tests clearing an expired user.
+
+### Additional Notes:
+
+* The code uses the `vm` object from the Forge testing framework to manipulate the blockchain state.
+* The `expectRevert` function is used to verify that a transaction reverts with a specific error message.
+* The `assertEq` function is used to verify that two values are equal.
 ```
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
