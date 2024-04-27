@@ -2,7 +2,7 @@
 
 ## List of Smart Contracts
 
-| Title | Last Commit Message |
+| Title | Description |
 |---|---|
 | [IRental.t.md](https://github.com/danielbelay321/web3-Assignment/blob/main/IRental.t.md) |Interface for the Rental contract, which defines the functions and events related to renting an NFT |
 | [IRentalNFT.md](https://github.com/danielbelay321/web3-Assignment/blob/main/IRentalNFT.md) | Interface for the RentalNFT contract, which extends the ERC721 standard to support rental functionality. |
