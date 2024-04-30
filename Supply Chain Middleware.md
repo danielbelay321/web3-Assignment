@@ -1,6 +1,23 @@
-This contract allows the owner to link an NFT to a proposal, unlink an NFT from a proposal, and vote on a proposal using an NFT. The contract uses the RentalNFT contract to check the ownership and user of the NFT, and the Voting contract to interact with the voting functionality.
+### Overview
+InteractionContract is a contract that interacts with RentalNFT and Voting contracts.
 
-Note that you will need to replace RentalNFTAddress and VotingAddress with the actual addresses of the RentalNFT and Voting contracts, respectively.
+### Variables
+### RentalNFTAddress: address of the RentalNFT contract
+### VotingAddress: address of the Voting contract
+### nftToProposal: mapping of NFTs to proposals
+
+### Events
+### LinkNFTToProposal: emitted when an NFT is linked to a proposal
+### UnlinkNFTFromProposal: emitted when an NFT is unlinked from a proposal
+
+### Constructor
+### Initializes the contract with the addresses of the RentalNFT and Voting contracts
+
+### Functions
+### linkNFTToProposal: links an NFT to a proposal
+### unlinkNFTFromProposal: unlinks an NFT from a proposal
+### voteOnProposal: votes on a proposal using an NFT
+### getProposalId: returns the proposal ID linked to an NFT
 
 ```
 // SPDX-License-Identifier: MIT
@@ -9,10 +26,13 @@ pragma solidity ^0.8.24;
 import "node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "node_modules/@openzeppelin/contracts/access/Ownable.sol";
 import "node_modules/@openzeppelin/contracts/utils/Context.sol";
-import "./Voting.sol";
 import "./RentalNFT.sol";
+import "./votingContract.sol";
 
 contract InteractionContract is Ownable {
+    address public RentalNFTAddress;
+    address public VotingAddress;
+
     // Mapping to store the relationship between NFTs and proposals
     mapping(uint256 => uint256) public nftToProposal;
 
@@ -21,6 +41,11 @@ contract InteractionContract is Ownable {
 
     // Event emitted when an NFT is unlinked from a proposal
     event UnlinkNFTFromProposal(uint256 indexed tokenId, uint256 indexed proposalId);
+
+    constructor(address initialOwner) Ownable(initialOwner) {
+        RentalNFTAddress = address(new RentalNFT("RentalNFT", "RNFT", address(this)));
+        VotingAddress = address(new Voting());
+    }
 
     // Function to link an NFT to a proposal
     function linkNFTToProposal(uint256 tokenId, uint256 proposalId) public onlyOwner {
